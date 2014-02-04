@@ -1,0 +1,26 @@
+#!/usr/bin/python
+#
+# MANAGED BY PUPPET #
+# DO NOT EDIT LOCALLY #
+#
+import smtplib
+import datetime
+
+def main():
+  FROM = '<%= from_address %>'
+  FQDN = '<%= @fqdn %>'
+  server = smtplib.SMTP('<%= smtp_server %>')
+  server.sendmail(FROM, <%= to_addresses %>, MESSAGE % (FROM, ','.join(<%= to_addresses %>), FQDN, FQDN, datetime.datetime.now() ))
+
+MESSAGE = """\
+From: %s
+To: %s
+Subject: %s server has booted up
+
+%s server has booted up. 
+
+Date: %s
+"""
+
+if __name__ == "__main__":
+  main()

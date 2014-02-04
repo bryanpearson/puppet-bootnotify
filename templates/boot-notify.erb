@@ -1,0 +1,26 @@
+#!/bin/bash
+#
+# MANAGED BY PUPPET #
+# DO NOT EDIT LOCALLY #
+#
+
+### BEGIN INIT INFO
+# Provides:          boot-notify
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start daemon at boot time
+# Description:       Enable service provided by daemon.
+### END INIT INFO
+
+PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+. /lib/lsb/init-functions
+
+case $1 in
+  start)
+    python <%= python_file_dir %>/boot-notify-sender.py
+    ;;
+
+esac
+exit 0
