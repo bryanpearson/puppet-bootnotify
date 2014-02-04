@@ -1,6 +1,6 @@
-# == Class: boot-notify
+# == Class: bootnotify
 #
-# This class installs and configures the boot-notify files and service.
+# This class installs and configures the bootnotify files and service.
 #
 # === Parameters
 #
@@ -21,7 +21,7 @@
 #
 # class { 'bootnotify':
 #   from_address    => "noreply@example.com",
-#   to_address      => "youraddress@example.com",
+#   to_address      => ["youraddress@example.com", "heraddress@example.com"]
 #   smtp_server     => "smtp.example.com",
 #   python_file_dir => "/usr/local/bin",
 # }

@@ -1,7 +1,7 @@
 puppet-bootnotify
 ==================
 
-A Puppet module for managing the installation and configuration of the boot-notify service.
+A Puppet module for managing the installation and configuration of the bootnotify service.
 
 ## Reasoning
 
@@ -18,7 +18,7 @@ the SMTP server address and to/from addresses. For the simple installation :
 
     class { 'bootnotify':
       from_address      => "noreply@example.com",
-      to_address        => "youraddress@example.com",
+      to_address        => ["youraddress@example.com", "heraddress@example.com"],
       smtp_server       => "smtp.example.com",
       python_file_dir   => "/usr/local/bin",
     }
