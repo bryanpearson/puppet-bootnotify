@@ -33,17 +33,17 @@ class bootnotify (
   $python_file_dir = undef,
 )
 {
-  file { '/etc/init.d/boot-notify':
-    content => template('boot-notify/boot-notify.erb'),
+  file { '/etc/init.d/bootnotify':
+    content => template('bootnotify/bootnotify.erb'),
     mode    => '0755',
   }
   ->
-  file { "$python_file_dir/boot-notify-sender.py":
-    content => template('boot-notify/boot-notify-sender.py.erb'),
+  file { "${python_file_dir}/bootnotify-sender.py":
+    content => template('bootnotify/bootnotify-sender.py.erb'),
     mode    => '0755',
   }
   ->
-  service { 'boot-notify':
+  service { 'bootnotify':
     ensure => running,
     enable => true,
   }
