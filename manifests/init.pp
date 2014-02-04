@@ -42,7 +42,7 @@ class bootnotify (
     content => template('boot-notify/boot-notify-sender.py.erb'),
     mode    => '0755',
   }
-  ~>
+  ->
   service { 'boot-notify':
     ensure => running,
     enable => true,
